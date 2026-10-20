@@ -2,52 +2,69 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios - DUALSHOCK-LAB</title>
+    
+    <!-- Enlace al CSS global de tu proyecto -->
     <link rel="stylesheet" href="../css/estilo.css">
-    <link rel="stylesheet" href="servicios.css">
 </head>
 <body>
+
+    <!-- Menú de navegación basado en tu estilo.css -->
     <header class="navbar">
         <div class="tituloNav">DUALSHOCK-LAB</div>
-        <div class="menu">
-            <a href="../dashboard/index.html">Dashboard</a>
-            <a href="../login/index.html">Salir</a>
-        </div>
+        <nav class="menu">
+            <a href="../dashboard/index.html">Volver al Dashboard</a>
+            <a href="../index.html">Salir</a>
+        </nav>
     </header>
 
-    <main class="contenedor">
-        <h2>Ingreso de Servicios Técnicos</h2>
-
-        <!-- Formulario -->
+    <!-- Contenedor principal -->
+    <main style="padding: 40px; max-width: 800px; margin: 0 auto;">
+        
+        <h1>Gestión de Servicios Técnicos</h1>
+        
+        <!-- Formulario para agregar servicios -->
         <form id="formServicio" class="formulariostyle">
             <div class="fila">
-                <input type="text" id="nombre" placeholder="Nombre (ej: Limpieza PS5)" required>
+                <input type="text" id="nombre" placeholder="Nombre del servicio (Ej: Limpieza PS5)" required>
             </div>
+            
             <div class="fila">
                 <input type="number" id="precio" placeholder="Precio ($)" required>
             </div>
+            
             <div class="fila">
-                <input type="text" id="duracion" placeholder="Duración (ej: 1 hora)" required>
+                <input type="text" id="duracion" placeholder="Duración (Ej: 1 hora)" required>
             </div>
-            <button type="submit" class="botonGuardar">Guardar Servicio</button>
+            
+            <div class="botones">
+                <button type="submit" class="botonGuardar">Guardar Servicio</button>
+            </div>
         </form>
 
-        <h2>Lista de Servicios</h2>
+        <br><br>
 
-        <!-- Tabla -->
-        <table>
-            <thead>
+        <!-- Tabla para mostrar los servicios guardados -->
+        <h2>Servicios Registrados</h2>
+        <table border="1" style="width: 100%; text-align: left; border-collapse: collapse; background-color: white;">
+            <thead style="background-color: #2563eb; color: white;">
                 <tr>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Duración</th>
-                    <th>Acción</th>
+                    <th style="padding: 10px;">Nombre</th>
+                    <th style="padding: 10px;">Precio</th>
+                    <th style="padding: 10px;">Duración</th>
+                    <th style="padding: 10px;">Acción</th>
                 </tr>
             </thead>
-            <tbody id="tablaBody"></tbody>
+            <tbody id="tablaBody">
+                <!-- Las filas se agregarán aquí con JavaScript -->
+            </tbody>
         </table>
+
     </main>
 
+    <!-- Enlace al JavaScript que haremos después -->
     <script src="servicios.js"></script>
+
 </body>
 </html>
