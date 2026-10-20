@@ -5,39 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios - DUALSHOCK-LAB</title>
     
-    <!-- Enlace al CSS global de tu proyecto -->
-    <link rel="stylesheet" href="../css/estilo.css">
+ 
+    <!-- conexion con css de servicio -->
+    <link rel="stylesheet" href="/css/servicios.css">
 </head>
 <body>
-
-    <!-- Menú de navegación basado en tu estilo.css -->
     <header class="navbar">
-        <div class="tituloNav">DUALSHOCK-LAB</div>
+        <div class="tituloNav"></div>
         <nav class="menu">
-            <a href="../dashboard/index.html">Volver al Dashboard</a>
-            <a href="../index.html">Salir</a>
+            <a href="index.html">Salir</a> 
         </nav>
     </header>
-
-    <!-- Contenedor principal -->
     <main style="padding: 40px; max-width: 800px; margin: 0 auto;">
-        
-        <h1>Gestión de Servicios Técnicos</h1>
-        
-        <!-- Formulario para agregar servicios -->
+        <h1>Gestión de Servicios Técnicos DUALSHOCK-LAB (PRECIOS REALESs)</h1>
+        <!-- aqui es  para agregar servicios -->
         <form id="formServicio" class="formulariostyle">
             <div class="fila">
-                <input type="text" id="nombre" placeholder="Nombre del servicio (Ej: Limpieza PS5)" required>
+                <label for="nombreSelect" style="font-weight: bold; margin-bottom: 5px; display: block;"
+                >Mantención para consolas y computadores y cambio de piezas etc</label>
+                <select id="nombreSelect" required>
+        <option value="" disabled selected>Seleccione un servicio...</option>
+                <option value="Mantención consola (Pasta térmica) - $25.000">Mantención consola (Pasta térmica + a domicilio) - $25.000</option>
+  <option value="Mantención PS5 (Metal líquido) - $55.000">Mantención PS5 (Metal líquido + a domicilio) - $55.000</option>
+ <option value="Mantención PC/Notebook Básico - $30.000">Mantención PC/Notebook Básico (CPU/GPU + a domicilio) - $30.000</option>
+  <option value="Mantención PC/Notebook Full - $45.000">Mantención PC/Notebook Full (CPU/GPU + a domicilio) - $45.000</option>
+  <option value="Cambio de Disco Duro 1TB - $60.000">Cambio Disco Duro 1TB (Instalación + Configuración + a domicilio) - $60.000</option>
+<option value="Cambio HDMI PS4 - $50.000">Cambio HDMI PS4 (Con maquinaria, retiro/entrega 48 hrs) - $50.000</option>
+   <option value="Cambio HDMI PS5 - $65.000">Cambio HDMI PS5 (Con maquinaria, retiro/entrega 48 hrs) - $65.000</option>
+  <option value="Mantención consola + Lector - $30.000">Mantención consola + Lector (Pasta térmica + diag. lector) - $30.000</option>
+<option value="Formateo Notebook/PC - $20.000">Formateo Notebook/PC - $20.000</option>
+                </select>
             </div>
-            
-            <div class="fila">
-                <input type="number" id="precio" placeholder="Precio ($)" required>
-            </div>
-            
-            <div class="fila">
-                <input type="text" id="duracion" placeholder="Duración (Ej: 1 hora)" required>
-            </div>
-            
             <div class="botones">
                 <button type="submit" class="botonGuardar">Guardar Servicio</button>
             </div>
@@ -45,7 +43,7 @@
 
         <br><br>
 
-        <!-- Tabla para mostrar los servicios guardados -->
+        <!--  AQUI CREAMOS LA TABLA PARA MOSTRAR LOS SERVICIOS GUARDADOS -->
         <h2>Servicios Registrados</h2>
         <table border="1" style="width: 100%; text-align: left; border-collapse: collapse; background-color: white;">
             <thead style="background-color: #2563eb; color: white;">
@@ -53,18 +51,18 @@
                     <th style="padding: 10px;">Nombre</th>
                     <th style="padding: 10px;">Precio</th>
                     <th style="padding: 10px;">Duración</th>
-                    <th style="padding: 10px;">Acción</th>
+                    <th style="padding: 10px;">servicio registrado :</th>
                 </tr>
             </thead>
-            <tbody id="tablaBody">
-                <!-- Las filas se agregarán aquí con JavaScript -->
+            <tbody id="tabladeservicios">
+                
             </tbody>
         </table>
 
     </main>
 
-    <!-- Enlace al JavaScript que haremos después -->
-    <script src="servicios.js"></script>
+    <!-- javascript-->
+    <script src="/servicios/servicios.js"></script>
 
 </body>
 </html>
