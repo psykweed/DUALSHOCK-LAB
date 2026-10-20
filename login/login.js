@@ -9,9 +9,11 @@ if (usuarios === null) {
 }
 
 const formularioJS = document.getElementById("formulario");
+const mensajeLogin = document.getElementById("mensajeLogin");
 
 formularioJS.addEventListener("submit", function (event) {
     event.preventDefault()
+    mensajeLogin.innerText = ""
 
     const usuarioLogin = document.getElementById("usuarioLogin").value.trim();
     const passwordLogin = document.getElementById("passwordLogin").value;
@@ -31,7 +33,7 @@ formularioJS.addEventListener("submit", function (event) {
 
 
 function mostrarError(texto) {
-    alert(texto)
+    mensajeLogin.innerText = texto
 }
 
 function validarVacios(usuario, password) {
