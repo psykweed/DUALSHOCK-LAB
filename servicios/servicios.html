@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Servicios - DUALSHOCK-LAB</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="servicios.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="tituloNav">DUALSHOCK-LAB</div>
+        <div class="menu">
+            <a href="../dashboard/index.html">Dashboard</a>
+            <a href="../login/index.html">Salir</a>
+        </div>
+    </header>
+
+    <main class="contenedor">
+        <h2>Ingreso de Servicios Técnicos</h2>
+
+        <!-- Formulario -->
+        <form id="formServicio" class="formulariostyle">
+            <div class="fila">
+                <input type="text" id="nombre" placeholder="Nombre (ej: Limpieza PS5)" required>
+            </div>
+            <div class="fila">
+                <input type="number" id="precio" placeholder="Precio ($)" required>
+            </div>
+            <div class="fila">
+                <input type="text" id="duracion" placeholder="Duración (ej: 1 hora)" required>
+            </div>
+            <button type="submit" class="botonGuardar">Guardar Servicio</button>
+        </form>
+
+        <h2>Lista de Servicios</h2>
+
+        <!-- Tabla -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Duración</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="tablaBody"></tbody>
+        </table>
+    </main>
+
+    <script src="servicios.js"></script>
+</body>
+</html>
