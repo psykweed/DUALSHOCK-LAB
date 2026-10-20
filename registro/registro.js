@@ -1,7 +1,9 @@
 const formularioJS = document.getElementById("formulario");
+const mensajeRegistro = document.getElementById("mensajeRegistro");
 
 formularioJS.addEventListener("submit", function (event) {
     event.preventDefault()
+    mensajeRegistro.innerText = ""
 
     const usuario = document.getElementById("usuarioRegistro").value.trim();
     const correo = document.getElementById("correoRegistro").value.trim();
@@ -46,7 +48,7 @@ formularioJS.addEventListener("submit", function (event) {
 
 
 function mostrarError(texto) {
-    alert(texto)
+    mensajeRegistro.innerText = texto
 }
 
 function validarVacios(usuario, correo, password, confirmar) {
