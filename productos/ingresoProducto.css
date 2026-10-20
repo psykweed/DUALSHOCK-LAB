@@ -1,5 +1,38 @@
 /* estilos propios del modulo de ingreso de productos */
 
+.layoutProducto {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
 .formularioProducto {
-    max-width: 700px;
+    flex: 1;
+}
+
+.panelReglas {
+    width: 290px;
+}
+
+.panelReglas h2 {
+    margin-top: 0;
+}
+
+.panelReglas ul {
+    margin: 0;
+    padding-left: 18px;
+    color: #a3aed0;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+@media (max-width: 820px) {
+
+    .layoutProducto {
+        flex-direction: column;
+    }
+
+    .panelReglas {
+        width: 100%;
+    }
 }
