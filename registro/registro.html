@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="registro.css">
+</head>
+
+<body>
+
+    <div class="formularioContenedor">
+        <form class="card formulariostyle" id="formulario">
+            <h2>Crear cuenta</h2>
+
+            <div class="campo">
+                <label for="usuarioRegistro">Usuario</label>
+                <input type="text" id="usuarioRegistro" placeholder="Nombre de usuario">
+            </div>
+
+            <div class="campo">
+                <label for="correoRegistro">Correo</label>
+                <input type="text" id="correoRegistro" placeholder="correo@ejemplo.com">
+            </div>
+
+            <div class="campo">
+                <label for="passwordRegistro">Contraseña</label>
+                <input type="password" id="passwordRegistro">
+            </div>
+
+            <div class="campo">
+                <label for="confirmarRegistro">Confirmar contraseña</label>
+                <input type="password" id="confirmarRegistro">
+            </div>
+
+            <button class="botonGuardar" type="submit">Registrarme</button>
+
+            <p class="textoPie"><a href="../login/login.html">Volver al login</a></p>
+        </form>
+    </div>
+    <script src="registro.js"></script>
+</body>
+
+</html>
