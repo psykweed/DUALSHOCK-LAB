@@ -5,64 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios - DUALSHOCK-LAB</title>
     
- 
-    <!-- conexion con css de servicio -->
-    <link rel="stylesheet" href="/css/servicios.css">
+ <!-- conexion con css de servicio -->
+<link rel="stylesheet" href="/servicios/servicios.css">
 </head>
-<body>
-    <header class="navbar">
-        <div class="tituloNav"></div>
-        <nav class="menu">
-            <a href="index.html">Salir</a> 
-        </nav>
-    </header>
-    <main style="padding: 40px; max-width: 800px; margin: 0 auto;">
-        <h1>Gestión de Servicios Técnicos DUALSHOCK-LAB (PRECIOS REALESs)</h1>
-        <!-- aqui es  para agregar servicios -->
-        <form id="formServicio" class="formulariostyle">
-            <div class="fila">
-                <label for="nombreSelect" style="font-weight: bold; margin-bottom: 5px; display: block;"
-                >Mantención para consolas y computadores y cambio de piezas etc</label>
-                <select id="nombreSelect" required>
-        <option value="" disabled selected>Seleccione un servicio...</option>
-                <option value="Mantención consola (Pasta térmica) - $25.000">Mantención consola (Pasta térmica + a domicilio) - $25.000</option>
-  <option value="Mantención PS5 (Metal líquido) - $55.000">Mantención PS5 (Metal líquido + a domicilio) - $55.000</option>
- <option value="Mantención PC/Notebook Básico - $30.000">Mantención PC/Notebook Básico (CPU/GPU + a domicilio) - $30.000</option>
-  <option value="Mantención PC/Notebook Full - $45.000">Mantención PC/Notebook Full (CPU/GPU + a domicilio) - $45.000</option>
-  <option value="Cambio de Disco Duro 1TB - $60.000">Cambio Disco Duro 1TB (Instalación + Configuración + a domicilio) - $60.000</option>
-<option value="Cambio HDMI PS4 - $50.000">Cambio HDMI PS4 (Con maquinaria, retiro/entrega 48 hrs) - $50.000</option>
-   <option value="Cambio HDMI PS5 - $65.000">Cambio HDMI PS5 (Con maquinaria, retiro/entrega 48 hrs) - $65.000</option>
-  <option value="Mantención consola + Lector - $30.000">Mantención consola + Lector (Pasta térmica + diag. lector) - $30.000</option>
-<option value="Formateo Notebook/PC - $20.000">Formateo Notebook/PC - $20.000</option>
-                </select>
-            </div>
-            <div class="botones">
-                <button type="submit" class="botonGuardar">Guardar Servicio</button>
-            </div>
-        </form>
-
-        <br><br>
-
-        <!--  AQUI CREAMOS LA TABLA PARA MOSTRAR LOS SERVICIOS GUARDADOS -->
-        <h2>Servicios Registrados</h2>
-        <table border="1" style="width: 100%; text-align: left; border-collapse: collapse; background-color: white;">
-            <thead style="background-color: #2563eb; color: white;">
-                <tr>
-                    <th style="padding: 10px;">Nombre</th>
-                    <th style="padding: 10px;">Precio</th>
-                    <th style="padding: 10px;">Duración</th>
-                    <th style="padding: 10px;">servicio registrado :</th>
-                </tr>
-            </thead>
-            <tbody id="tabladeservicios">
-                
-            </tbody>
-        </table>
-
+<body style="background: url('/servicios/fondo_servicio_html.jpg') center / cover fixed no-repeat;">
+<header class="navbar">
+<div class="tituloNav"></div>
+<nav class="menu">
+  <a href="/index.html" class="salirbton">Salir</a> 
+</nav>
+</header>
+<main style="padding: 40px; max-width: 800px; margin: 0 auto;">
+<h1>Servicios Técnicos DUALSHOCK-LAB (Precios reales)</h1>
+<section class="carta-servicios" aria-labelledby="titulo-carta">
+<h2 id="titulo-carta">Carta de servicios y precios $$</h2>
+<p class="carta-intro">Los servicios a domicilio se coordinan al agendar.</p>
+<div class="servicios-grid">
+<article class="servicio-card">
+ <h3>Mantención de consola</h3>
+   <p>Limpieza y cambio de pasta térmica. Servicio a domicilio.</p>
+    <span class="servicio-precio">$25.000</span>
+   </article>
+<article class="servicio-card">
+  <h3>Mantención PS5</h3>
+ <p>Mantención con metal líquido Servicio a domicilio.</p>
+   <span class="servicio-precio">$55.000</span>
+</article>
+<article class="servicio-card">
+ <h3>Mantención PC/Notebook básica</h3>
+<p>Mantención de CPU/GPU. Servicio a domicilio.</p>
+ <span class="servicio-precio">$30.000</span>
+ </article>
+ <article class="servicio-card">
+   <h3>Mantención PC/Notebook full</h3>
+<p>Mantención completa de CPU/GPU. Servicio a domicilio.</p>
+<span class="servicio-precio">$45.000</span>
+   </article>
+  <article class="servicio-card">
+ <h3>Cambio de disco duro 1 TB</h3>
+     <p>Incluye instalación y configuración.</p>
+    <span class="servicio-precio">$60.000</span>
+ </article>
+      <article class="servicio-card">
+        <h3>Cambio HDMI PS4</h3>
+     <p>Reparación con maquinaria. Retiro y entrega en 48 horas.</p>
+    <span class="servicio-precio">$50.000</span>
+</article>
+ <article class="servicio-card">
+ <h3>Cambio HDMI PS5</h3>
+   <p>Reparación con maquinaria. Retiro y entrega en 48 horas.</p>
+  <span class="servicio-precio">$65.000</span>
+</article>
+<article class="servicio-card"> <h3>Mantención de consola + lector</h3>
+   <p>Pasta térmica y diagnóstico del lector.</p>
+  <span class="servicio-precio">$30.000</span> </article>
+  <article class="servicio-card">
+  <h3>Formateo Notebook/PC</h3>
+   <p>Formateo y puesta a punto del equipo.</p>
+   <span class="servicio-precio">$20.000</span>
+     </article>
+</div>
+        </section>
     </main>
-
-    <!-- javascript-->
-    <script src="servicios/servicios.js"></script>
-
 </body>
-</html>
+</html>             
