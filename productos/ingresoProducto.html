@@ -27,71 +27,49 @@
         <h1>Ingreso de producto</h1>
         <p>Registra un producto nuevo en el inventario</p>
 
-        <div class="layoutProducto">
+        <form class="card formularioProducto" id="formulario">
 
-            <form class="card formularioProducto" id="formulario">
-
-                <div class="fila">
-                    <div class="campo">
-                        <label for="nombreProducto">Nombre</label>
-                        <input type="text" id="nombreProducto" placeholder="Tarjeta de video RTX 4060">
-                        <p class="mensajeError" id="errorNombre"></p>
-                    </div>
-                    <div class="campo">
-                        <label for="skuProducto">SKU</label>
-                        <input type="text" id="skuProducto" placeholder="GPU-4060-03">
-                        <p class="mensajeError" id="errorSku"></p>
-                    </div>
+            <div class="fila">
+                <div class="campo">
+                    <label for="nombreProducto">Nombre</label>
+                    <input type="text" id="nombreProducto" placeholder="Tarjeta de video RTX 4060">
                 </div>
-
-                <div class="fila">
-                    <div class="campo">
-                        <label for="categoriaSelect">Categoría</label>
-                        <select id="categoriaSelect">
-                            <option value="">Seleccione categoría</option>
-                            <option value="Consolas">Consolas</option>
-                            <option value="Computadores">Computadores</option>
-                            <option value="Componentes">Componentes</option>
-                            <option value="Accesorios">Accesorios</option>
-                        </select>
-                        <p class="mensajeError" id="errorCategoria"></p>
-                    </div>
-                    <div class="campo">
-                        <label for="cantidadProducto">Cantidad</label>
-                        <input type="number" id="cantidadProducto">
-                        <p class="mensajeError" id="errorCantidad"></p>
-                    </div>
+                <div class="campo">
+                    <label for="skuProducto">SKU</label>
+                    <input type="text" id="skuProducto" placeholder="GPU-4060-03">
                 </div>
-
-                <div class="fila">
-                    <div class="campo">
-                        <label for="precioProducto">Precio</label>
-                        <input type="number" id="precioProducto">
-                        <p class="mensajeError" id="errorPrecio"></p>
-                    </div>
-                </div>
-
-                <p class="mensajeExito" id="mensajeExito"></p>
-
-                <div class="botones">
-                    <button class="botonGuardar" type="submit">Guardar</button>
-                    <button class="botonSecundario" type="button" id="botonVolver">Volver al dashboard</button>
-                </div>
-
-            </form>
-
-            <div class="card panelReglas">
-                <h2>Se valida que</h2>
-                <ul>
-                    <li>Ningún campo puede ir vacío</li>
-                    <li>El nombre tiene mínimo 3 letras</li>
-                    <li>El nombre y el SKU no son iguales</li>
-                    <li>El SKU no se repite</li>
-                    <li>Cantidad y precio mayores a cero</li>
-                </ul>
             </div>
 
-        </div>
+            <div class="fila">
+                <div class="campo">
+                    <label for="categoriaSelect">Categoría</label>
+                    <select id="categoriaSelect">
+                        <option value="">Seleccione categoría</option>
+                        <option value="Consolas">Consolas</option>
+                        <option value="Computadores">Computadores</option>
+                        <option value="Componentes">Componentes</option>
+                        <option value="Accesorios">Accesorios</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="cantidadProducto">Cantidad</label>
+                    <input type="number" id="cantidadProducto">
+                </div>
+            </div>
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="precioProducto">Precio</label>
+                    <input type="number" id="precioProducto">
+                </div>
+            </div>
+
+            <div class="botones">
+                <button class="botonGuardar" type="submit">Guardar</button>
+                <button class="botonSecundario" type="button" id="botonVolver">Volver al dashboard</button>
+            </div>
+
+        </form>
     </main>
 
     <script src="ingresoProducto.js"></script>
