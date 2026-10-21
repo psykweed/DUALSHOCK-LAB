@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - DUALSHOCK-LAB</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="registro.css">
+</head>
+
+<body>
+
+    <div class="pantallaDividida">
+
+        <div class="panelMarca">
+            <div class="logo">🎮 DUALSHOCK-LAB</div>
+            <h1>Crea tu cuenta para entrar al sistema</h1>
+            <p>Con tu usuario puedes ver el dashboard y usar todos los módulos.</p>
+        </div>
+
+        <div class="panelFormulario">
+            <form class="card formulariostyle" id="formulario">
+                <h2>Crear cuenta</h2>
+                <p class="subtitulo">Completa tus datos para registrarte</p>
+
+                <div class="campo">
+                    <label for="usuarioRegistro">Usuario</label>
+                    <input type="text" id="usuarioRegistro" placeholder="Nombre de usuario">
+                </div>
+
+                <div class="campo">
+                    <label for="correoRegistro">Correo</label>
+                    <input type="text" id="correoRegistro" placeholder="correo@ejemplo.com">
+                </div>
+
+                <div class="campo">
+                    <label for="passwordRegistro">Contraseña</label>
+                    <input type="password" id="passwordRegistro">
+                </div>
+
+                <div class="campo">
+                    <label for="confirmarRegistro">Confirmar contraseña</label>
+                    <input type="password" id="confirmarRegistro">
+                </div>
+
+                <p class="mensajeError" id="mensajeRegistro"></p>
+
+                <button class="botonGuardar" type="submit">Registrarme</button>
+
+                <p class="textoPie">¿Ya tienes cuenta? <a href="../login/login.html">Inicia sesión</a></p>
+            </form>
+        </div>
+
+    </div>
+    <script src="registro.js"></script>
+</body>
+
+</html>

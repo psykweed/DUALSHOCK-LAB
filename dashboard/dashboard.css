@@ -1,0 +1,15 @@
+/* estilos propios del dashboard */
+
+.contenido h2 {
+    margin-top: 0;
+}
+
+.tablaUltimos {
+    margin-bottom: 24px;
+    overflow-x: auto;
+}
+
+.textoSecundario {
+    color: #a3aed0;
+    margin: 16px 0 0;
+}
