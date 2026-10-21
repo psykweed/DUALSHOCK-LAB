@@ -30,7 +30,7 @@
         <div class="contenedorCards">
             <div class="card">
                 <div class="cardInfo">
-                    <h3>Productos registrados</h3>
+                    <h3>Productos en inventario</h3>
                     <p id="totalProductos">0</p>
                 </div>
             </div>
@@ -42,31 +42,35 @@
             </div>
             <div class="card">
                 <div class="cardInfo">
-                    <h3>Agendamientos</h3>
+                    <h3>Agendamientos registrados</h3>
                     <p id="totalAgendamientos">0</p>
                 </div>
             </div>
         </div>
 
-        <div class="card tablaUltimos">
-            <h2>Últimos productos ingresados</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>SKU</th>
-                        <th>Producto</th>
-                        <th>Categoría</th>
-                        <th>Cantidad</th>
-                        <th>Precio</th>
-                    </tr>
-                </thead>
-                <tbody id="tablaProductos"></tbody>
-            </table>
-            <p class="textoSecundario" id="mensajeVacio">Aún no hay productos ingresados</p>
-        </div>
+        <h2>Módulos del sistema</h2>
 
-        <div class="botones">
-            <button class="botonGuardar" type="button" id="botonAgregarProducto">Agregar producto</button>
+        <div class="contenedorModulos">
+            <div class="card modulo">
+                <h3>Ingreso de productos</h3>
+                <p>Registra productos nuevos con sus validaciones.</p>
+                <a href="../productos/ingresoProducto.html">Ir a ingreso de productos</a>
+            </div>
+            <div class="card modulo">
+                <h3>Inventario</h3>
+                <p>Revisa el stock, busca productos y ajusta cantidades.</p>
+                <a href="../inventario/inventario.html">Ir a inventario</a>
+            </div>
+            <div class="card modulo">
+                <h3>Servicios</h3>
+                <p>Crea y revisa los servicios técnicos disponibles.</p>
+                <a href="../servicios/servicios.html">Ir a servicios</a>
+            </div>
+            <div class="card modulo">
+                <h3>Agendamientos</h3>
+                <p>Agenda y revisa las citas de los servicios.</p>
+                <a href="../agendamientos/agendamientos.html">Ir a agendamientos</a>
+            </div>
         </div>
     </main>
 
