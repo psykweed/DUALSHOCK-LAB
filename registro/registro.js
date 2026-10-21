@@ -1,9 +1,7 @@
 const formularioJS = document.getElementById("formulario");
-const mensajeRegistro = document.getElementById("mensajeRegistro");
 
 formularioJS.addEventListener("submit", function (event) {
     event.preventDefault()
-    mensajeRegistro.innerText = ""
 
     const usuario = document.getElementById("usuarioRegistro").value.trim();
     const correo = document.getElementById("correoRegistro").value.trim();
@@ -29,7 +27,7 @@ formularioJS.addEventListener("submit", function (event) {
         usuarios = []
     }
 
-    if (usuarioRepetido(usuario, usuarios)) {
+    if (usuarioRepetido(usuario, usuarios) === true) {
         return;
     }
 
@@ -47,13 +45,11 @@ formularioJS.addEventListener("submit", function (event) {
 })
 
 
-function mostrarError(texto) {
-    mensajeRegistro.innerText = texto
-}
+/* funciones de validacion, devuelven true si esta todo bien */
 
 function validarVacios(usuario, correo, password, confirmar) {
     if (usuario === "" || correo === "" || password === "" || confirmar === "") {
-        mostrarError("Todos los campos son obligatorios");
+        alert("campo no puede ser vacio");
         return false;
     }
 
@@ -62,7 +58,7 @@ function validarVacios(usuario, correo, password, confirmar) {
 
 function validarCorreo(correo) {
     if (correo.indexOf("@") === -1 || correo.indexOf(".") === -1) {
-        mostrarError("El correo no es valido");
+        alert("el correo no es valido");
         return false;
     }
 
@@ -71,12 +67,12 @@ function validarCorreo(correo) {
 
 function validarPassword(password, confirmar) {
     if (password.length < 6) {
-        mostrarError("La contraseña debe tener minimo 6 caracteres");
+        alert("la contraseña debe tener minimo 6 caracteres");
         return false;
     }
 
     if (password !== confirmar) {
-        mostrarError("Las contraseñas no coinciden");
+        alert("las contraseñas no coinciden");
         return false;
     }
 
@@ -87,7 +83,7 @@ function validarPassword(password, confirmar) {
 function usuarioRepetido(usuario, usuarios) {
     for (let i = 0; i < usuarios.length; i++) {
         if (usuarios[i].usuario.toLowerCase() === usuario.toLowerCase()) {
-            mostrarError("Ese usuario ya existe");
+            alert("ese usuario ya existe");
             return true;
         }
     }
