@@ -9,11 +9,9 @@ if (usuarios === null) {
 }
 
 const formularioJS = document.getElementById("formulario");
-const mensajeLogin = document.getElementById("mensajeLogin");
 
 formularioJS.addEventListener("submit", function (event) {
     event.preventDefault()
-    mensajeLogin.innerText = ""
 
     const usuarioLogin = document.getElementById("usuarioLogin").value.trim();
     const passwordLogin = document.getElementById("passwordLogin").value;
@@ -32,13 +30,11 @@ formularioJS.addEventListener("submit", function (event) {
 })
 
 
-function mostrarError(texto) {
-    mensajeLogin.innerText = texto
-}
+/* funciones de validacion, devuelven true si esta todo bien */
 
 function validarVacios(usuario, password) {
     if (usuario === "" || password === "") {
-        mostrarError("Los campos no pueden estar vacios");
+        alert("campo no puede ser vacio");
         return false;
     }
 
@@ -55,6 +51,6 @@ function validarUsuario(usuario, password) {
         }
     }
 
-    mostrarError("Usuario o contraseña incorrectos");
+    alert("Usuario o contraseña incorrectos");
     return false;
 }
