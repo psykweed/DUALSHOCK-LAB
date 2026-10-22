@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - DUALSHOCK-LAB</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <nav class="sidebar">
+        <h2>🎮<br>DUALSHOCK-LAB</h2>
+        <div class="menu">
+            <a href="../dashboard/dashboard.html" class="activo">Inicio</a>
+            <a href="../productos/ingresoProducto.html">Ingresar producto</a>
+            <a href="../inventario/inventario.html">Inventario</a>
+            <a href="../servicios/servicios.html">Servicios</a>
+            <a href="../agendamientos/agendamientos.html">Agendamientos</a>
+            <a href="../login/login.html" id="cerrarSesion">Cerrar sesión</a>
+        </div>
+    </nav>
+
+    <main class="contenido">
+        <h1>Dashboard</h1>
+        <p id="saludo">Bienvenido al panel de administración</p>
+
+        <div class="contenedorCards">
+            <div class="card">
+                <div class="cardInfo">
+                    <h3>Productos en inventario</h3>
+                    <p id="totalProductos">0</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardInfo">
+                    <h3>Servicios disponibles</h3>
+                    <p id="totalServicios">0</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardInfo">
+                    <h3>Agendamientos registrados</h3>
+                    <p id="totalAgendamientos">0</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Módulos del sistema</h2>
+
+        <div class="contenedorModulos">
+            <div class="card modulo">
+                <h3>Ingreso de productos</h3>
+                <p>Registra productos nuevos con sus validaciones.</p>
+                <a href="../productos/ingresoProducto.html">Ir a ingreso de productos</a>
+            </div>
+            <div class="card modulo">
+                <h3>Inventario</h3>
+                <p>Revisa el stock, busca productos y ajusta cantidades.</p>
+                <a href="../inventario/inventario.html">Ir a inventario</a>
+            </div>
+            <div class="card modulo">
+                <h3>Servicios</h3>
+                <p>Crea y revisa los servicios técnicos disponibles.</p>
+                <a href="../servicios/servicios.html">Ir a servicios</a>
+            </div>
+            <div class="card modulo">
+                <h3>Agendamientos</h3>
+                <p>Agenda y revisa las citas de los servicios.</p>
+                <a href="../agendamientos/agendamientos.html">Ir a agendamientos</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+
+</html>
