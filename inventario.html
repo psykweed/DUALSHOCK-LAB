@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repuestos | DualShock Lab</title>
+  <link rel="stylesheet" href="css/compartido.css">
+  <link rel="stylesheet" href="css/inventario.css">
+</head>
+<body>
+
+  <nav class="barra">
+    <a class="logo" href="dashboard.html">🎮 DualShock Lab</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="inventario.html" class="activo">Repuestos</a>
+    <button type="button" id="btnCerrarSesion">Cerrar sesión</button>
+  </nav>
+
+  <main class="contenedor">
+    <h1>Repuestos de notebook y consolas</h1>
+
+    <!-- Formulario para agregar un repuesto -->
+    <section class="tarjeta">
+      <h2>Agregar repuesto</h2>
+      <form id="formRepuesto" novalidate>
+        <div class="fila-form">
+          <div>
+            <label for="repNombre">Nombre</label>
+            <input type="text" id="repNombre">
+          </div>
+          <div>
+            <label for="repCodigo">Código</label>
+            <input type="text" id="repCodigo" placeholder="Ej: NB-010">
+          </div>
+          <div>
+            <label for="repCosto">Valor costo ($)</label>
+            <input type="number" id="repCosto" min="1">
+          </div>
+          <div>
+            <label for="repStock">Stock</label>
+            <input type="number" id="repStock" min="0">
+          </div>
+        </div>
+        <button type="submit" class="boton">Agregar</button>
+      </form>
+      <p id="mensajeRepuesto" class="mensaje"></p>
+    </section>
+
+    <!-- Lista de repuestos -->
+    <section class="tarjeta">
+      <h2>Lista de repuestos</h2>
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Código</th>
+              <th>Valor costo</th>
+              <th>Stock</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="cuerpoTabla"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/compartido.js"></script>
+  <script src="js/inventario.js"></script>
+</body>
+</html>
