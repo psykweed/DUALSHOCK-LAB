@@ -39,8 +39,10 @@ Cada integrante crea su rama desde `main`, sube sus commits y despues se une a `
 | `usuarios` | arreglo de `{ usuario, correo, password }` |
 | `sesion` | nombre del usuario que inicio sesion |
 | `productos` | arreglo de `{ nombre, sku, categoria, cantidad, precio }` |
+| `ingresos` | arreglo de `{ nombre, sku, categoria, cantidad, precio, fecha, usuario, estado }` |
 | `servicios` | arreglo de `{ nombre, precio, duracion }` |
 | `agendamientos` | arreglo de `{ cliente, servicio, fecha, hora }` |
+
 
 ## Como probar
 
