@@ -1,72 +1,109 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Repuestos | DualShock Lab</title>
-  <link rel="stylesheet" href="css/compartido.css">
-  <link rel="stylesheet" href="css/inventario.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario - DUALSHOCK-LAB</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="inventario.css">
 </head>
+
 <body>
 
-  <nav class="barra">
-    <a class="logo" href="dashboard.html">🎮 DualShock Lab</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="inventario.html" class="activo">Repuestos</a>
-    <button type="button" id="btnCerrarSesion">Cerrar sesión</button>
-  </nav>
-
-  <main class="contenedor">
-    <h1>Repuestos de notebook y consolas</h1>
-
-    <!-- Formulario para agregar un repuesto -->
-    <section class="tarjeta">
-      <h2>Agregar repuesto</h2>
-      <form id="formRepuesto" novalidate>
-        <div class="fila-form">
-          <div>
-            <label for="repNombre">Nombre</label>
-            <input type="text" id="repNombre">
-          </div>
-          <div>
-            <label for="repCodigo">Código</label>
-            <input type="text" id="repCodigo" placeholder="Ej: NB-010">
-          </div>
-          <div>
-            <label for="repCosto">Valor costo ($)</label>
-            <input type="number" id="repCosto" min="1">
-          </div>
-          <div>
-            <label for="repStock">Stock</label>
-            <input type="number" id="repStock" min="0">
-          </div>
+    <nav class="sidebar">
+        <h2>🎮<br>DUALSHOCK-LAB</h2>
+        <div class="menu">
+            <a href="../dashboard/dashboard.html">Inicio</a>
+            <a href="../productos/ingresoProducto.html">Ingresar producto</a>
+            <a href="../inventario/inventario.html" class="activo">Inventario</a>
+            <a href="../servicios/servicios.html">Servicios</a>
+            <a href="../agendamientos/agendamientos.html">Agendamientos</a>
+            <a href="../login/login.html" id="cerrarSesion">Cerrar sesión</a>
         </div>
-        <button type="submit" class="boton">Agregar</button>
-      </form>
-      <p id="mensajeRepuesto" class="mensaje"></p>
-    </section>
+    </nav>
 
-    <!-- Lista de repuestos -->
-    <section class="tarjeta">
-      <h2>Lista de repuestos</h2>
-      <div class="tabla-scroll">
-        <table>
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Código</th>
-              <th>Valor costo</th>
-              <th>Stock</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="cuerpoTabla"></tbody>
-        </table>
-      </div>
-    </section>
-  </main>
+    <main class="contenido">
+        <h1>Inventario</h1>
+        <p>Productos y repuestos registrados en "Ingresar producto"</p>
 
-  <script src="js/compartido.js"></script>
-  <script src="js/inventario.js"></script>
+        <!-- formulario de edicion: esta oculto hasta que se pulsa "Editar" en una fila -->
+        <form class="card formularioEdicion" id="formularioEdicion">
+            <h2>Editar producto</h2>
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="editNombre">Nombre</label>
+                    <input type="text" id="editNombre">
+                </div>
+                <div class="campo">
+                    <label for="editSku">SKU</label>
+                    <input type="text" id="editSku">
+                </div>
+            </div>
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="editCategoria">Categoría</label>
+                    <select id="editCategoria">
+                        <option value="">Seleccione categoría</option>
+                        <option value="Consolas">Consolas</option>
+                        <option value="Computadores">Computadores</option>
+                        <option value="Componentes">Componentes</option>
+                        <option value="Accesorios">Accesorios</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="editCantidad">Cantidad</label>
+                    <input type="number" id="editCantidad">
+                </div>
+            </div>
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="editPrecio">Precio</label>
+                    <input type="number" id="editPrecio">
+                </div>
+            </div>
+
+            <p id="mensajeEdicion"></p>
+
+            <div class="botones">
+                <button class="botonGuardar" type="submit">Guardar cambios</button>
+                <button class="botonSecundario" type="button" id="botonCancelarEdicion">Cancelar</button>
+            </div>
+        </form>
+
+        <div class="card">
+            <div class="barraBusqueda">
+                <input type="text" id="buscador" placeholder="Buscar por nombre o SKU...">
+                <button class="botonGuardar" type="button" id="botonIngresar">+ Ingresar producto</button>
+            </div>
+
+            <p id="mensajeInventario"></p>
+            <p class="textoSecundario" id="contadorProductos"></p>
+            <p class="textoSecundario" id="mensajeVacio"></p>
+
+            <div class="tablaInventario" id="contenedorTabla">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>SKU</th>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Cantidad</th>
+                            <th>Precio unitario</th>
+                            <th>Valor total</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaInventario"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="inventario.js"></script>
 </body>
+
 </html>
