@@ -1,0 +1,75 @@
+/* estilos propios del modulo de inventario */
+
+.barraFiltros {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.barraFiltros input {
+    flex: 1;
+}
+
+.barraFiltros select {
+    width: 220px;
+}
+
+.tablaScroll {
+    overflow-x: auto;
+}
+
+.celdaCantidad {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.celdaCantidad span {
+    min-width: 28px;
+    text-align: center;
+}
+
+/* botones chicos para la tabla */
+.botonCantidad,
+.botonEliminar {
+    height: 32px;
+    padding: 0;
+    background-color: transparent;
+    border: 1px solid #26315e;
+    color: #eef1fb;
+}
+
+.botonCantidad {
+    width: 32px;
+}
+
+.botonEliminar {
+    padding: 0 14px;
+    color: #ff7b7b;
+}
+
+.botonCantidad:hover,
+.botonEliminar:hover {
+    background-color: #17204a;
+}
+
+.stockBajo {
+    color: #ff7b7b;
+    font-weight: bold;
+}
+
+.sinResultados {
+    text-align: center;
+    color: #a3aed0;
+}
+
+@media (max-width: 820px) {
+
+    .barraFiltros {
+        flex-direction: column;
+    }
+
+    .barraFiltros select {
+        width: 100%;
+    }
+}
