@@ -1,71 +1,121 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios - DUALSHOCK-LAB</title>
-    
- <!-- conexion con css de servicio -->
-<link rel="stylesheet" href="/servicios/servicios.css">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="servicios.css">
 </head>
-<body style="background: url('/servicios/fondo_servicio_html.jpg') center / cover fixed no-repeat;">
-<header class="navbar">
-<div class="tituloNav"></div>
-<nav class="menu">
-  <a href="/index.html" class="salirbton">Salir</a> 
-</nav>
-</header>
-<main style="padding: 40px; max-width: 800px; margin: 0 auto;">
-<h1>Servicios Técnicos DUALSHOCK-LAB (Precios reales)</h1>
-<section class="carta-servicios" aria-labelledby="titulo-carta">
-<h2 id="titulo-carta">Carta de servicios y precios $$</h2>
-<p class="carta-intro">Los servicios a domicilio se coordinan al agendar.</p>
-<div class="servicios-grid">
-<article class="servicio-card">
- <h3>Mantención de consola</h3>
-   <p>Limpieza y cambio de pasta térmica. Servicio a domicilio.</p>
-    <span class="servicio-precio">$25.000</span>
-   </article>
-<article class="servicio-card">
-  <h3>Mantención PS5</h3>
- <p>Mantención con metal líquido Servicio a domicilio.</p>
-   <span class="servicio-precio">$55.000</span>
-</article>
-<article class="servicio-card">
- <h3>Mantención PC/Notebook básica</h3>
-<p>Mantención de CPU/GPU. Servicio a domicilio.</p>
- <span class="servicio-precio">$30.000</span>
- </article>
- <article class="servicio-card">
-   <h3>Mantención PC/Notebook full</h3>
-<p>Mantención completa de CPU/GPU. Servicio a domicilio.</p>
-<span class="servicio-precio">$45.000</span>
-   </article>
-  <article class="servicio-card">
- <h3>Cambio de disco duro 1 TB</h3>
-     <p>Incluye instalación y configuración.</p>
-    <span class="servicio-precio">$60.000</span>
- </article>
-      <article class="servicio-card">
-        <h3>Cambio HDMI PS4</h3>
-     <p>Reparación con maquinaria. Retiro y entrega en 48 horas.</p>
-    <span class="servicio-precio">$50.000</span>
-</article>
- <article class="servicio-card">
- <h3>Cambio HDMI PS5</h3>
-   <p>Reparación con maquinaria. Retiro y entrega en 48 horas.</p>
-  <span class="servicio-precio">$65.000</span>
-</article>
-<article class="servicio-card"> <h3>Mantención de consola + lector</h3>
-   <p>Pasta térmica y diagnóstico del lector.</p>
-  <span class="servicio-precio">$30.000</span> </article>
-  <article class="servicio-card">
-  <h3>Formateo Notebook/PC</h3>
-   <p>Formateo y puesta a punto del equipo.</p>
-   <span class="servicio-precio">$20.000</span>
-     </article>
-</div>
-        </section>
+
+<body>
+
+    <nav class="sidebar">
+        <h2>🎮<br>DUALSHOCK-LAB</h2>
+        <div class="menu">
+            <a href="../dashboard/dashboard.html">Inicio</a>
+            <a href="../productos/ingresoProducto.html">Ingresar producto</a>
+            <a href="../inventario/inventario.html">Inventario</a>
+            <a href="../servicios/servicios.html" class="activo">Servicios</a>
+            <a href="../agendamientos/agendamientos.html">Agendamientos</a>
+            <a href="../login/login.html" id="cerrarSesion">Cerrar sesión</a>
+        </div>
+    </nav>
+
+    <main class="contenido">
+        <h1>Servicios</h1>
+        <p>Servicios técnicos para consolas y computadores. Se coordinan al agendar</p>
+
+        <h2>Nuestros servicios</h2>
+        <div class="contenedorServicios" id="listaServicios"></div>
+        <p class="textoSecundario" id="mensajeVacio">No hay servicios disponibles</p>
+
+        <div class="card detalleServicio" id="detalleServicio">
+            <h2 id="detalleNombre"></h2>
+            <p class="textoSecundario" id="detalleDescripcion"></p>
+
+            <div class="columnasDetalle">
+                <div>
+                    <h3>Lo que incluye</h3>
+                    <ul id="detalleIncluye"></ul>
+                </div>
+                <div>
+                    <h3>Especificaciones</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="etiqueta">Precio</td>
+                                <td id="detallePrecio"></td>
+                            </tr>
+                            <tr>
+                                <td class="etiqueta">Plazo</td>
+                                <td id="detallePlazo"></td>
+                            </tr>
+                            <tr>
+                                <td class="etiqueta">Modalidad</td>
+                                <td id="detalleModalidad"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="botones">
+                <button class="botonSecundario botonPeligro" type="button" id="botonEliminar">Eliminar servicio</button>
+            </div>
+        </div>
+
+        <form class="card formularioServicio" id="formulario">
+
+            <h2>Agregar servicio</h2>
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="nombreServicio">Nombre del servicio</label>
+                    <input type="text" id="nombreServicio" placeholder="Cambio de pantalla">
+                </div>
+                <div class="campo">
+                    <label for="precioServicio">Precio desde</label>
+                    <input type="number" id="precioServicio">
+                </div>
+            </div>
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="plazoServicio">Plazo</label>
+                    <input type="text" id="plazoServicio" placeholder="48 horas">
+                </div>
+                <div class="campo">
+                    <label for="modalidadSelect">Modalidad</label>
+                    <select id="modalidadSelect">
+                        <option value="">Seleccione modalidad</option>
+                        <option value="A domicilio">A domicilio</option>
+                        <option value="Retiro o taller">Retiro o taller</option>
+                        <option value="Se coordina al agendar">Se coordina al agendar</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="descripcionServicio">Descripción corta</label>
+                <input type="text" id="descripcionServicio" placeholder="Qué es el servicio en una frase">
+            </div>
+
+            <div class="campo">
+                <label for="incluyeServicio">Lo que incluye (una cosa por línea)</label>
+                <textarea id="incluyeServicio" rows="4"></textarea>
+            </div>
+
+            <div class="botones">
+                <button class="botonGuardar" type="submit">Guardar servicio</button>
+                <button class="botonSecundario" type="button" id="botonRestaurar">Restaurar servicios iniciales</button>
+            </div>
+
+        </form>
     </main>
+
+    <script src="servicios.js"></script>
 </body>
-</html>             
+
+</html>
