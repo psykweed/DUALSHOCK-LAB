@@ -3,3 +3,89 @@
 .formularioProducto {
     max-width: 700px;
 }
+
+.formularioProducto h2 {
+    margin-top: 0;
+}
+
+#botonCancelar {
+    display: none;
+}
+
+.listaIngresos {
+    margin-top: 30px;
+}
+
+.listaIngresos h2 {
+    margin: 0 0 6px;
+}
+
+.textoSecundario {
+    color: #a3aed0;
+    font-size: 14px;
+    margin: 0 0 16px;
+}
+
+.contenedorTabla {
+    overflow-x: auto;
+}
+
+td {
+    font-size: 14px;
+}
+
+/* estado del ingreso */
+
+.estado {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.pendiente {
+    background-color: #3a2a0b;
+    color: #ffb547;
+}
+
+.enInventario {
+    background-color: #0f3320;
+    color: #4ade80;
+}
+
+/* botones de la tabla */
+
+.accionesTabla {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.botonTabla {
+    height: 32px;
+    padding: 0 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    border: 1px solid #26315e;
+    background-color: transparent;
+    color: #eef1fb;
+}
+
+.botonTabla:hover {
+    background-color: #17204a;
+}
+
+.botonEnviar {
+    background-color: #3d6bff;
+    border-color: #3d6bff;
+    font-weight: bold;
+}
+
+.botonEnviar:hover {
+    background-color: #5a82ff;
+}
+
+.botonEliminar {
+    color: #ff7b7b;
+}
