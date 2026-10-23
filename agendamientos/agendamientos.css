@@ -1,0 +1,55 @@
+/* estilos propios del modulo de agendamientos
+   la base (sidebar, card, fila, campo, botones, tabla, mensajes) viene de ../css/estilo.css,
+   aca solo va lo que es especifico de esta pagina */
+
+.formularioAgendamiento {
+    max-width: 700px;
+}
+
+/* mensaje de la reserva: usa mensajeError o mensajeExito de estilo.css (lo cambia el js) */
+#mensajeAgendamiento {
+    min-height: 18px;
+    margin: 0;
+}
+
+/* el calendario del input de fecha se ve oscuro igual que el resto */
+input[type="date"] {
+    color-scheme: dark;
+}
+
+/* horas que ya estan reservadas, se ven apagadas en la lista */
+option:disabled {
+    color: #6b7494;
+}
+
+/* listado de citas */
+.listaAgendamientos {
+    margin-top: 30px;
+}
+
+.listaAgendamientos h2 {
+    margin-top: 0;
+}
+
+.tablaCitas {
+    overflow-x: auto;
+}
+
+.textoSecundario {
+    color: #a3aed0;
+    margin: 16px 0 0;
+}
+
+/* boton cancelar de cada fila: mas chico y rojo, para no confundirlo con guardar */
+.botonCancelar {
+    height: 34px;
+    padding: 0 14px;
+    background-color: transparent;
+    border: 1px solid #ff7b7b;
+    color: #ff7b7b;
+}
+
+.botonCancelar:hover {
+    background-color: #ff7b7b;
+    color: #0a0f1e;
+}

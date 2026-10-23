@@ -1,0 +1,76 @@
+/* estilos propios del modulo de inventario
+   la base (sidebar, card, botones, tabla) viene de ../css/estilo.css,
+   aca solo va lo que es especifico de esta pagina */
+
+/* buscador y boton en la misma linea; en pantallas chicas el boton baja */
+.barraBusqueda {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.barraBusqueda input {
+    flex: 1;
+    min-width: 220px;
+}
+
+.barraBusqueda button {
+    margin: 0;
+}
+
+.textoSecundario {
+    color: #a3aed0;
+    margin: 16px 0 0;
+}
+
+/* en celular la tabla se desliza hacia el lado sin romper la pagina */
+.tablaInventario {
+    overflow-x: auto;
+    margin-top: 16px;
+}
+
+/* formulario de edicion: oculto hasta que el js lo muestra */
+.formularioEdicion {
+    display: none;
+    max-width: 700px;
+    margin-bottom: 30px;
+}
+
+.formularioEdicion h2 {
+    margin-top: 0;
+}
+
+/* mensajes (usan mensajeError o mensajeExito de estilo.css, los cambia el js) */
+#mensajeEdicion {
+    min-height: 18px;
+    margin: 0;
+}
+
+#mensajeInventario {
+    margin: 16px 0 0;
+}
+
+/* botones chicos de cada fila */
+.botonTabla {
+    height: 34px;
+    padding: 0 14px;
+    margin-right: 8px;
+    background-color: transparent;
+    border: 1px solid #3d6bff;
+    color: #dbe3ff;
+}
+
+.botonTabla:hover {
+    background-color: #3d6bff;
+}
+
+.botonEliminar {
+    border-color: #ff7b7b;
+    color: #ff7b7b;
+}
+
+.botonEliminar:hover {
+    background-color: #ff7b7b;
+    color: #0a0f1e;
+}

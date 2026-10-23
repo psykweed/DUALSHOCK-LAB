@@ -1,0 +1,29 @@
+/* inicio.css
+   Estilos solo de index.html. Los colores, tarjetas, botones y formularios
+   vienen de compartido.css, por eso este archivo es corto. */
+
+/* Portada: el nombre del servicio técnico destaca con un brillo cian */
+.portada {
+  text-align: center;
+  padding: 56px 16px 44px;
+  border-bottom: 1px solid var(--borde);
+  background: radial-gradient(circle at 50% 0%, rgba(0, 67, 156, 0.55), transparent 70%);
+}
+.portada h1 {
+  font-size: clamp(2.6rem, 9vw, 4.8rem);   /* se adapta al ancho de la pantalla */
+  letter-spacing: 1px;
+  text-shadow: 0 0 24px var(--cian);
+}
+.portada p { max-width: 600px; margin: 0 auto 8px; color: var(--texto-suave); }
+.portada .boton { display: inline-block; text-decoration: none; }  /* un enlace con apariencia de botón */
+
+/* Tarjetas de servicios */
+.servicio { text-align: center; margin-bottom: 0; }
+.servicio .icono { font-size: 2.2rem; }
+#servicios { margin-bottom: 32px; }
+
+/* Registro y login en dos columnas; en celular pasan a una sola */
+.dos-columnas { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 700px) {
+  .dos-columnas { grid-template-columns: 1fr; }
+}
