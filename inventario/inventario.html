@@ -25,55 +25,79 @@
 
     <main class="contenido">
         <h1>Inventario</h1>
-        <p>Revisa el stock, busca productos y ajusta cantidades</p>
+        <p>Productos y repuestos registrados en "Ingresar producto"</p>
 
-        <div class="contenedorCards">
-            <div class="card">
-                <div class="cardInfo">
-                    <h3>Productos distintos</h3>
-                    <p id="totalProductos">0</p>
+        <!-- formulario de edicion: esta oculto hasta que se pulsa "Editar" en una fila -->
+        <form class="card formularioEdicion" id="formularioEdicion">
+            <h2>Editar producto</h2>
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="editNombre">Nombre</label>
+                    <input type="text" id="editNombre">
+                </div>
+                <div class="campo">
+                    <label for="editSku">SKU</label>
+                    <input type="text" id="editSku">
                 </div>
             </div>
-            <div class="card">
-                <div class="cardInfo">
-                    <h3>Unidades en stock</h3>
-                    <p id="totalUnidades">0</p>
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="editCategoria">Categoría</label>
+                    <select id="editCategoria">
+                        <option value="">Seleccione categoría</option>
+                        <option value="Consolas">Consolas</option>
+                        <option value="Computadores">Computadores</option>
+                        <option value="Componentes">Componentes</option>
+                        <option value="Accesorios">Accesorios</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="editCantidad">Cantidad</label>
+                    <input type="number" id="editCantidad">
                 </div>
             </div>
-            <div class="card">
-                <div class="cardInfo">
-                    <h3>Con stock bajo</h3>
-                    <p id="totalBajos">0</p>
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="editPrecio">Precio</label>
+                    <input type="number" id="editPrecio">
                 </div>
             </div>
-        </div>
+
+            <p id="mensajeEdicion"></p>
+
+            <div class="botones">
+                <button class="botonGuardar" type="submit">Guardar cambios</button>
+                <button class="botonSecundario" type="button" id="botonCancelarEdicion">Cancelar</button>
+            </div>
+        </form>
 
         <div class="card">
-            <div class="barraFiltros">
-                <input type="text" id="buscador" placeholder="Buscar por nombre o SKU">
-                <select id="filtroCategoria">
-                    <option value="">Todas las categorías</option>
-                    <option value="Consolas">Consolas</option>
-                    <option value="Computadores">Computadores</option>
-                    <option value="Componentes">Componentes</option>
-                    <option value="Accesorios">Accesorios</option>
-                </select>
-                <button class="botonGuardar" type="button" id="botonIngreso">Ingresar producto</button>
+            <div class="barraBusqueda">
+                <input type="text" id="buscador" placeholder="Buscar por nombre o SKU...">
+                <button class="botonGuardar" type="button" id="botonIngresar">+ Ingresar producto</button>
             </div>
 
-            <div class="tablaScroll">
+            <p id="mensajeInventario"></p>
+            <p class="textoSecundario" id="contadorProductos"></p>
+            <p class="textoSecundario" id="mensajeVacio"></p>
+
+            <div class="tablaInventario" id="contenedorTabla">
                 <table>
                     <thead>
                         <tr>
-                            <th>Nombre</th>
                             <th>SKU</th>
+                            <th>Nombre</th>
                             <th>Categoría</th>
-                            <th>Precio</th>
                             <th>Cantidad</th>
+                            <th>Precio unitario</th>
+                            <th>Valor total</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody id="cuerpoTabla"></tbody>
+                    <tbody id="tablaInventario"></tbody>
                 </table>
             </div>
         </div>
