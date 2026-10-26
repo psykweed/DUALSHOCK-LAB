@@ -9,8 +9,11 @@ if (sesion === null) {
 const botonCerrarSesion = document.getElementById("cerrarSesion");
 
 botonCerrarSesion.addEventListener("click", function () {
+    console.log("[ingreso] sesion cerrada");
     localStorage.removeItem("sesion")
 });
+
+console.log("[ingreso] pagina cargada, usuario: " + sesion);
 
 const formularioJS = document.getElementById("formulario");
 const tituloFormulario = document.getElementById("tituloFormulario");
@@ -25,12 +28,15 @@ mostrarIngresos()
 
 formularioJS.addEventListener("submit", function (event) {
     event.preventDefault()
+    console.log("[ingreso] formulario enviado");
 
     const nombre = document.getElementById("nombreProducto").value.trim();
     const sku = document.getElementById("skuProducto").value.trim();
     const categoria = document.getElementById("categoriaSelect").value;
     const cantidad = document.getElementById("cantidadProducto").value;
     const precio = document.getElementById("precioProducto").value;
+
+    console.log("[ingreso] datos escritos: ", { nombre: nombre, sku: sku, categoria: categoria, cantidad: cantidad, precio: precio });
 
     if (validarVacios(nombre, sku, categoria, cantidad, precio) === false) {
         return;
@@ -64,6 +70,7 @@ formularioJS.addEventListener("submit", function (event) {
         }
 
         ingresos.push(nuevoIngreso)
+        console.log("[ingreso] ingreso nuevo, queda pendiente: ", nuevoIngreso);
         alert("Ingreso guardado, queda pendiente de enviar al inventario")
     } else {
         // cambiamos los datos del ingreso que se estaba editando
@@ -72,6 +79,7 @@ formularioJS.addEventListener("submit", function (event) {
         ingresos[posicionEdicion].categoria = categoria;
         ingresos[posicionEdicion].cantidad = Number(cantidad);
         ingresos[posicionEdicion].precio = Number(precio);
+        console.log("[ingreso] ingreso actualizado: ", ingresos[posicionEdicion]);
         alert("Ingreso actualizado")
     }
 
@@ -103,6 +111,7 @@ function leerLista(clave) {
 
 function guardarLista(clave, lista) {
     localStorage.setItem(clave, JSON.stringify(lista))
+    console.log("[ingreso] guardado en localStorage (" + clave + "): " + lista.length + " registro(s)", lista)
 }
 
 
@@ -158,6 +167,7 @@ function mostrarIngresos() {
 function editarIngreso(posicion) {
     const ingresos = leerLista("ingresos")
     const ingreso = ingresos[posicion]
+    console.log("[ingreso] editando ingreso: ", ingreso);
 
     document.getElementById("nombreProducto").value = ingreso.nombre;
     document.getElementById("skuProducto").value = ingreso.sku;
@@ -195,6 +205,7 @@ function enviarAInventario(posicion) {
 
     for (let i = 0; i < productos.length; i++) {
         if (productos[i].sku.toLowerCase() === ingreso.sku.toLowerCase()) {
+            console.warn("[ingreso] Error: el sku ya existe en el inventario, no se puede enviar");
             alert("el sku ya existe en el inventario, no se puede enviar");
             return;
         }
@@ -209,6 +220,7 @@ function enviarAInventario(posicion) {
     }
 
     productos.push(producto)
+    console.log("[ingreso] producto enviado al inventario: ", producto);
     guardarLista("productos", productos)
 
     ingresos[posicion].estado = "En inventario"
@@ -229,6 +241,7 @@ function eliminarIngreso(posicion) {
         return;
     }
 
+    console.log("[ingreso] ingreso eliminado (posicion " + posicion + ")");
     const ingresos = leerLista("ingresos")
     const restantes = []
 
@@ -248,6 +261,7 @@ function eliminarIngreso(posicion) {
 
 function validarVacios(nombre, sku, categoria, cantidad, precio) {
     if (nombre === "" || sku === "" || categoria === "" || cantidad === "" || precio === "") {
+        console.warn("[ingreso] Error: campo no puede ser vacio");
         alert("campo no puede ser vacio");
         return false;
     }
@@ -257,11 +271,13 @@ function validarVacios(nombre, sku, categoria, cantidad, precio) {
 
 function validarNombre(nombre, sku) {
     if (nombre.length < 3) {
+        console.warn("[ingreso] Error: el nombre debe tener minimo 3 caracteres");
         alert("el nombre debe tener minimo 3 caracteres");
         return false;
     }
 
     if (nombre.toLowerCase() === sku.toLowerCase()) {
+        console.warn("[ingreso] Error: nombre y sku no pueden ser iguales");
         alert("nombre y sku no pueden ser iguales");
         return false;
     }
@@ -271,11 +287,13 @@ function validarNombre(nombre, sku) {
 
 function validarNumeros(cantidad, precio) {
     if (cantidad <= 0) {
+        console.warn("[ingreso] Error: la cantidad debe ser mayor a cero");
         alert("la cantidad debe ser mayor a cero");
         return false;
     }
 
     if (precio <= 0) {
+        console.warn("[ingreso] Error: el precio debe ser mayor a cero");
         alert("el precio debe ser mayor a cero");
         return false;
     }
@@ -290,6 +308,7 @@ function skuRepetido(sku, posicionIgnorada) {
 
     for (let i = 0; i < productos.length; i++) {
         if (productos[i].sku.toLowerCase() === sku.toLowerCase()) {
+            console.warn("[ingreso] Error: el sku ya existe en el inventario");
             alert("el sku ya existe en el inventario");
             return true;
         }
@@ -297,6 +316,7 @@ function skuRepetido(sku, posicionIgnorada) {
 
     for (let i = 0; i < ingresos.length; i++) {
         if (i !== posicionIgnorada && ingresos[i].estado === "Pendiente" && ingresos[i].sku.toLowerCase() === sku.toLowerCase()) {
+            console.warn("[ingreso] Error: el sku ya esta en un ingreso pendiente");
             alert("el sku ya esta en un ingreso pendiente");
             return true;
         }

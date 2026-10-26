@@ -13,6 +13,7 @@ saludo.innerText = "Bienvenido al panel de administración, " + sesion;
 const botonCerrarSesion = document.getElementById("cerrarSesion");
 
 botonCerrarSesion.addEventListener("click", function () {
+    console.log("[dashboard] sesion cerrada");
     localStorage.removeItem("sesion")
 });
 
@@ -30,3 +31,5 @@ function contarRegistros(clave) {
 document.getElementById("totalProductos").innerText = contarRegistros("productos");
 document.getElementById("totalServicios").innerText = contarRegistros("servicios");
 document.getElementById("totalAgendamientos").innerText = contarRegistros("agendamientos");
+
+console.log("[dashboard] sesion de " + sesion + " | productos: " + contarRegistros("productos") + ", servicios: " + contarRegistros("servicios") + ", agendamientos: " + contarRegistros("agendamientos"));

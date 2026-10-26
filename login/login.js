@@ -1,3 +1,5 @@
+console.log("[login] pagina cargada");
+
 // si no hay usuarios guardados creamos uno de prueba
 let usuarios = JSON.parse(localStorage.getItem("usuarios"))
 
@@ -6,12 +8,14 @@ if (usuarios === null) {
         { usuario: "admin", correo: "admin@dualshock.cl", password: "123456" }
     ]
     localStorage.setItem("usuarios", JSON.stringify(usuarios))
+    console.log("[login] se creo el usuario de prueba admin");
 }
 
 const formularioJS = document.getElementById("formulario");
 
 formularioJS.addEventListener("submit", function (event) {
     event.preventDefault()
+    console.log("[login] formulario enviado");
 
     const usuarioLogin = document.getElementById("usuarioLogin").value.trim();
     const passwordLogin = document.getElementById("passwordLogin").value;
@@ -25,6 +29,7 @@ formularioJS.addEventListener("submit", function (event) {
     }
 
     // guardamos la sesion y pasamos al dashboard
+    console.log("[login] sesion iniciada: " + usuarioLogin);
     localStorage.setItem("sesion", usuarioLogin)
     window.location = "../dashboard/dashboard.html"
 })
@@ -34,6 +39,7 @@ formularioJS.addEventListener("submit", function (event) {
 
 function validarVacios(usuario, password) {
     if (usuario === "" || password === "") {
+        console.warn("[login] Error: campo no puede ser vacio");
         alert("campo no puede ser vacio");
         return false;
     }
@@ -51,6 +57,9 @@ function validarUsuario(usuario, password) {
         }
     }
 
+    console.warn("Error: Usuario o contraseña incorrectos");
+
     alert("Usuario o contraseña incorrectos");
     return false;
+    
 }

@@ -9,6 +9,7 @@ if (sesion === null) {
 const botonCerrarSesion = document.getElementById("cerrarSesion");
 
 botonCerrarSesion.addEventListener("click", function () {
+    console.log("[servicios] sesion cerrada");
     localStorage.removeItem("sesion")
 });
 
@@ -65,6 +66,8 @@ const SERVICIOS_INICIALES = [
     }
 ];
 
+console.log("[servicios] pagina cargada, usuario: " + sesion);
+
 const formularioJS = document.getElementById("formulario");
 const listaServicios = document.getElementById("listaServicios");
 const mensajeVacio = document.getElementById("mensajeVacio");
@@ -78,12 +81,14 @@ let servicioSeleccionado = 0;
 // si todavia no hay servicios guardados, guardamos los iniciales
 if (localStorage.getItem("servicios") === null) {
     guardarLista("servicios", SERVICIOS_INICIALES)
+    console.log("[servicios] primera vez: se guardaron los servicios iniciales");
 }
 
 mostrarServicios()
 
 formularioJS.addEventListener("submit", function (event) {
     event.preventDefault()
+    console.log("[servicios] formulario enviado");
 
     const nombre = document.getElementById("nombreServicio").value.trim();
     const precio = document.getElementById("precioServicio").value;
@@ -124,6 +129,7 @@ formularioJS.addEventListener("submit", function (event) {
     }
 
     servicios.push(nuevoServicio)
+    console.log("[servicios] servicio nuevo: ", nuevoServicio);
     guardarLista("servicios", servicios)
 
     alert("Servicio guardado")
@@ -145,6 +151,7 @@ botonEliminar.addEventListener("click", function () {
         return;
     }
 
+    console.log("[servicios] servicio eliminado (posicion " + servicioSeleccionado + ")");
     const servicios = leerLista("servicios")
     const restantes = []
 
@@ -184,6 +191,7 @@ function leerLista(clave) {
 
 function guardarLista(clave, lista) {
     localStorage.setItem(clave, JSON.stringify(lista))
+    console.log("[servicios] guardado en localStorage (" + clave + "): " + lista.length + " registro(s)", lista)
 }
 
 
@@ -254,6 +262,7 @@ function mostrarDetalle(servicio) {
 
 function verDetalle(posicion) {
     servicioSeleccionado = posicion
+    console.log("[servicios] servicio elegido: posicion " + posicion);
     mostrarServicios()
 }
 
@@ -278,6 +287,7 @@ function convertirEnLista(texto) {
 
 function validarVacios(nombre, precio, plazo, modalidad, descripcion) {
     if (nombre === "" || precio === "" || plazo === "" || modalidad === "" || descripcion === "") {
+        console.warn("[servicios] Error: campo no puede ser vacio");
         alert("campo no puede ser vacio");
         return false;
     }
@@ -287,6 +297,7 @@ function validarVacios(nombre, precio, plazo, modalidad, descripcion) {
 
 function validarNombre(nombre) {
     if (nombre.length < 3) {
+        console.warn("[servicios] Error: el nombre debe tener minimo 3 caracteres");
         alert("el nombre debe tener minimo 3 caracteres");
         return false;
     }
@@ -296,6 +307,7 @@ function validarNombre(nombre) {
 
 function validarPrecio(precio) {
     if (precio <= 0) {
+        console.warn("[servicios] Error: el precio debe ser mayor a cero");
         alert("el precio debe ser mayor a cero");
         return false;
     }
@@ -305,6 +317,7 @@ function validarPrecio(precio) {
 
 function validarIncluye(incluye) {
     if (incluye.length === 0) {
+        console.warn("[servicios] Error: escribe al menos una cosa que incluye el servicio");
         alert("escribe al menos una cosa que incluye el servicio");
         return false;
     }
@@ -316,6 +329,7 @@ function validarIncluye(incluye) {
 function nombreRepetido(nombre, servicios) {
     for (let i = 0; i < servicios.length; i++) {
         if (servicios[i].nombre.toLowerCase() === nombre.toLowerCase()) {
+            console.warn("[servicios] Error: ese servicio ya existe");
             alert("ese servicio ya existe");
             return true;
         }
