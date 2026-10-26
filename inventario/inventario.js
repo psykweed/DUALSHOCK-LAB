@@ -9,6 +9,7 @@ if (sesion === null) {
 const botonCerrarSesion = document.getElementById("cerrarSesion");
 
 botonCerrarSesion.addEventListener("click", function () {
+    console.log("[inventario] sesion cerrada");
     localStorage.removeItem("sesion")
 });
 
@@ -80,6 +81,8 @@ function mostrarInventario() {
         }
     }
 
+    console.log("[inventario] busqueda: '" + texto + "' -> " + encontrados.length + " de " + productos.length + " producto(s)");
+
     tablaInventario.innerHTML = "";
 
     // caso 1: todavia no hay productos guardados
@@ -145,6 +148,12 @@ function mostrarInventario() {
 // muestra un mensaje en la pagina, tipo es "exito" o "error"
 function mostrarMensaje(elemento, texto, tipo) {
     elemento.innerText = texto
+
+    if (tipo === "exito") {
+        console.log("[inventario] " + texto);
+    } else {
+        console.warn("[inventario] Error: " + texto);
+    }
 
     if (tipo === "exito") {
         elemento.className = "mensajeExito"
@@ -266,6 +275,7 @@ formularioEdicion.addEventListener("submit", function (event) {
     }
 
     localStorage.setItem("productos", JSON.stringify(productos))
+    console.log("[inventario] producto editado, lista guardada: ", productos);
 
     cerrarEdicion();
     mostrarInventario();
@@ -293,6 +303,7 @@ function eliminarProducto(sku) {
     }
 
     localStorage.setItem("productos", JSON.stringify(restantes))
+    console.log("[inventario] producto eliminado: " + sku);
 
     // si justo se estaba editando ese producto, cerramos el formulario
     if (skuEditando === sku) {
