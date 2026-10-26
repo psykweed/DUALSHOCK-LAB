@@ -11,6 +11,7 @@ if (sesion === null) {
 const botonCerrarSesion = document.getElementById("cerrarSesion");
 
 botonCerrarSesion.addEventListener("click", function () {
+    console.log("[agendamientos] sesion cerrada");
     localStorage.removeItem("sesion")
 });
 
@@ -55,6 +56,12 @@ function obtenerCitas() {
 // muestra un mensaje en la pagina, tipo es "exito" o "error"
 function mostrarMensaje(texto, tipo) {
     mensaje.innerText = texto
+
+    if (tipo === "exito") {
+        console.log("[agendamientos] " + texto);
+    } else {
+        console.warn("[agendamientos] Error: " + texto);
+    }
 
     if (tipo === "exito") {
         mensaje.className = "mensajeExito"
@@ -209,6 +216,7 @@ function cancelarCita(fecha, hora) {
     }
 
     localStorage.setItem("agendamientos", JSON.stringify(restantes))
+    console.log("[agendamientos] cita cancelada: " + fecha + " " + hora);
 
     cargarHoras();
     mostrarCitas();
@@ -285,6 +293,7 @@ formularioJS.addEventListener("submit", function (event) {
     const citas = obtenerCitas();
     citas.push(cita)
     localStorage.setItem("agendamientos", JSON.stringify(citas))
+    console.log("[agendamientos] cita guardada: ", cita);
 
     // dejamos el formulario vacio para agendar otra
     formularioJS.reset();
@@ -300,3 +309,5 @@ campoFecha.addEventListener("change", cargarHoras);   // al cambiar la fecha se 
 cargarServicios();
 cargarHoras();
 mostrarCitas();
+
+console.log("[agendamientos] pagina cargada, citas guardadas: " + obtenerCitas().length);
